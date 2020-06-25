@@ -14,14 +14,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String symbol="";
 
     private TextView resultado;
-    private Button solucion,num_siete,num_ocho,num_nueve,num_cuatro,num_cinco,num_seis,num_uno,num_dos,num_tres,num_cero;
-    private Button suma,resta,multiplicacion,division,igual,borrar,Solucion;
+    private Button num_siete,num_ocho,num_nueve,num_cuatro,num_cinco,num_seis,num_uno,num_dos,num_tres,num_cero;
+    private Button suma,resta,multiplicacion,division,igual,borrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         resultado = findViewById(R.id.solucion);
+
         num_cero = findViewById(R.id.num_cero);
         num_uno = findViewById(R.id.num_uno);
         num_dos = findViewById(R.id.num_dos);
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         multiplicacion = findViewById(R.id.multiplicacion);
         division = findViewById(R.id.division);
         borrar   = findViewById(R.id.borrar);
+        igual = findViewById(R.id.igual);
 
 
         num_cero.setOnClickListener(this);
@@ -56,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         division.setOnClickListener(this);
         multiplicacion.setOnClickListener(this);
         borrar.setOnClickListener(this);
+        igual.setOnClickListener(this);
 
 
 
@@ -64,94 +68,95 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
     switch (v.getId()){
-        case.R.id.num_cero:
+        case R.id.num_cero:
             numero = numero + "0";
             resultado.setText(numero);
             break;
-        case.R.id.num_uno:
+        case R.id.num_uno:
             numero = numero + "1";
             resultado.setText(numero);
             break;
-        case.R.id.num_dos:
+        case R.id.num_dos:
             numero = numero + "2";
             resultado.setText(numero);
             break;
-        case.R.id.num_tres:
+        case R.id.num_tres:
             numero = numero + "3";
             resultado.setText(numero);
             break;
-        case.R.id.num_cuatro:
+        case R.id.num_cuatro:
             numero = numero + "4";
             resultado.setText(numero);
             break;
-        case.R.id.num_cinco:
+        case R.id.num_cinco:
             numero = numero + "5";
             resultado.setText(numero);
             break;
-        case.R.id.num_seis:
+        case R.id.num_seis:
             numero = numero + "6";
             resultado.setText(numero);
             break;
-        case.R.id.num_siete:
+        case R.id.num_siete:
             numero = numero + "7";
             resultado.setText(numero);
             break;
-        case.R.id.num_ocho:
+        case R.id.num_ocho:
             numero = numero + "8";
             resultado.setText(numero);
             break;
-        case.R.id.num_nueve:
+        case R.id.num_nueve:
             numero = numero + "9";
             resultado.setText(numero);
             break;
-        case.R.id.suma:
-            symbol = "+"
+        case R.id.suma:
+            symbol = "+";
             num1=Integer.parseInt(numero); //guardarla como un entero
             numero = "";
             break;
-        case.R.id.resta:
-            symbol = "-"
+        case R.id.resta:
+            symbol = "-";
             num1=Integer.parseInt(numero); //guardarla como un entero
             numero = "";
             break;
-        case.R.id.multiplicacion:
-            symbol = "*"
+        case R.id.multiplicacion:
+            symbol = "*";
             num1=Integer.parseInt(numero); //guardarla como un entero
             numero = "";
             break;
-        case.R.id.division:
-            symbol = "/"
+        case R.id.division:
+            symbol = "/";
             num1=Integer.parseInt(numero); //guardarla como un entero
             numero = "";
             break;
-        case.R.id.borrar:
+        case R.id.borrar:
             symbol = "";
-            numero="";
+            numero= "";
             num1=0;
             num2=0;
-            resultado.setText("0"); //imprime el valor 0 en resultado
+            resultado.setText(""); //imprime el valor 0 en resultado
             break;
 
-            case .R.id.igual:
+            case R.id.igual:
                 num2=Integer.parseInt(numero); //se puede agregar mas numeros
 
                 switch (symbol){
                     case"-":
-                        resultado.setText("resultado" + (num1-num2));
+                        resultado.setText("resultado: " + (num1-num2));
                          break;
                     case"+":
-                        resultado.setText("resultado" + (num1+num2));
+                        resultado.setText("resultado: " + (num1+num2));
                         break;
                     case"/":
-                        resultado.setText("resultado" + (num1/num2));
+                        resultado.setText("resultado: " + (num1/num2));
                         break;
                     case"*":
-                        resultado.setText("resultado" + (num1*num2));
+                        resultado.setText("resultado: " + (num1*num2));
                         break;
                 }
-                numero="";
+                numero= "";
                 num1=0;
                 num2=0; //no entiendo
+                break;
 
     }
 }
